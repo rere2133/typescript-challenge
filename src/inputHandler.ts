@@ -11,6 +11,9 @@
  * 輸出: 'Input is a number: 123'
  */
 
-export function handleInput(input) {
+export function handleInput(input:string|number):string {
     // 在此實現函式
+    let inputType = typeof input
+    // input = inputType === 'number' ? input.toString():input
+    return `Input is a ${inputType}: ${input}`
 }
