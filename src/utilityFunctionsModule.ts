@@ -8,7 +8,19 @@
  * @returns - 回傳一個字串，表示格式化後的日期
  */
 export function formatDate(date: Date): string {
+
+    const formatMorD=(num:number):string=>{
+        console.log(num.toString().length);
+        
+       return num.toString().length<2? `0${num}`: `${num}`
+    }
+
     // 請在此處寫下你的程式碼
+    let d = new Date(date)
+    let y = d.getFullYear()
+    let m = d.getMonth()+1
+    let day = d.getDate()
+    return `${y}-${formatMorD(m)}-${formatMorD(day)}`    
 }
 
 /**
@@ -22,4 +34,5 @@ export function formatDate(date: Date): string {
  */
 export function roundNumber(num: number): number {
     // 請在此處寫下你的程式碼
+    return Math.round(num)
 }

@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 /**
  * 任務：實作一個 async 函式 `fetchData`，該函式應該能夠從指定的 URL 取得資料。
  * 範例：fetchData('https://jsonplaceholder.typicode.com/todos/1') 應該回傳一個包含 id、title 等屬性的物件
@@ -6,4 +7,19 @@
  */
 
 // 請在下方寫下你的程式碼
+interface Todo{
+  id: number
+  title: string
+  userId: number
+  completed: boolean
+}
 
+export const fetchData = async(url:string):Promise<Todo>=>{
+  try{
+    const res = await fetch(url)
+    const data: Todo = await res.json() as Todo;
+    return data
+  }catch(err){
+    return Promise.reject(err)
+  }
+}

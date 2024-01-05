@@ -6,4 +6,10 @@
  */
 export function uniqueElements(array: number[]): number[] {
     // 請在此處寫下你的程式碼
+    return array.reduce((acc:number[],cur:number)=>{
+        if(acc.length==0 || acc.find(el=>el===cur)===undefined){
+            acc.push(cur)
+        }
+        return acc
+    },[])
 }
